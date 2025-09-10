@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2082265941031917850
+--- !u!1 &6957269387217508404
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2851505440618099267}
-  - component: {fileID: 3348658842567560549}
-  - component: {fileID: 196840735315662687}
+  - component: {fileID: 2015304417342456167}
+  - component: {fileID: 3170783154354438902}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: DummyTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2851505440618099267
+--- !u!4 &2015304417342456167
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082265941031917850}
+  m_GameObject: {fileID: 6957269387217508404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,30 +32,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3348658842567560549
+--- !u!114 &3170783154354438902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082265941031917850}
+  m_GameObject: {fileID: 6957269387217508404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8512e991ea62de744b333aea717faa1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 92221f238f0bfab43a403a4916c61d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameGrid: {fileID: 196840735315662687}
---- !u!114 &196840735315662687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082265941031917850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e471979b1b726a4e8ee0a62e5294c40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 14
-  height: 15
+  canBeEdited: 1
+  objectType: 0
+  objectName: undefined
+  color: 0
+  groundType: 
+  shadeRequirement: 0
+  needsWall: 0
+  needsAdjacentGround: 0
+  noAdjacentGround: 0
+  needsAdjacentObject: []
+  noAdjacentObject: []
