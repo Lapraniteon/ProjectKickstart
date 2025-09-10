@@ -4,6 +4,7 @@ public class KickstartDataStructures
 {
     public enum GroundType
     {
+        none,
         Soil,
         Water,
         Solid
@@ -11,9 +12,9 @@ public class KickstartDataStructures
 
     public enum ShadeRequirement
     {
+        none,
         NeedsShade,
-        NoShade,
-        None
+        NoShade
     }
 
     public enum ObjectType
@@ -27,6 +28,7 @@ public class KickstartDataStructures
 
     public enum Color
     {
+        undefined,
         White,
         Yellow,
         Red, 

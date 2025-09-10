@@ -7,10 +7,10 @@ public class PlantData : MonoBehaviour
     public KickstartDataStructures.Color plantColor;
 
     public KickstartDataStructures.GroundType[] groundType;
-    public KickstartDataStructures.ShadeRequirement shadeRequirement;
+    public KickstartDataStructures.ShadeRequirement shadeRequirement = KickstartDataStructures.ShadeRequirement.none;
     public bool needsWall = false;
-    public KickstartDataStructures.GroundType needsAdjacentGround;
-    public KickstartDataStructures.GroundType noAdjacentGround;
+    public KickstartDataStructures.GroundType needsAdjacentGround = KickstartDataStructures.GroundType.none;
+    public KickstartDataStructures.GroundType noAdjacentGround = KickstartDataStructures.GroundType.none;
     public string[] needsAdjacentObject;
     public string[] noAdjacentObject;
 
