@@ -24,6 +24,16 @@ public class KickstartDataStructures
         Path,
         Grass
     }
+
+    public enum Color
+    {
+        White,
+        Yellow,
+        Red, 
+        Green,
+        Orange,
+        Pink
+    }
 }
 
 [System.Serializable]
