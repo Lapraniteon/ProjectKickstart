@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,9 +80,44 @@ public class GameGrid : MonoBehaviour
         return discoveredColors.Count;
     }
 
-    /*public bool CheckIfThereAreAdjacentObjects(string name1, string name2 = "", KickstartDataStructures.Color color2 = KickstartDataStructures.Color.undefined)
+    Vector2Int[] surroundingPoints =
     {
-        
-    }*/
+        new Vector2Int(1, 0),
+        new Vector2Int(1, 1),
+        new Vector2Int(0, 1),
+        new Vector2Int(-1, 1),
+        new Vector2Int(-1, 0),
+        new Vector2Int(-1, -1),
+        new Vector2Int(0, -1),
+        new Vector2Int(1, -1),
+    };
+    
+    public bool AreThereAdjacentObjects(string name1, string name2 = "", KickstartDataStructures.Color color2 = KickstartDataStructures.Color.undefined)
+    {
+        for (int row = 1; row < height - 1; row++)
+        {
+            for (int col = 1; col < width - 1; col++)
+            {
+                if (objectArray[row, col] == null)
+                    continue;
+                
+                if (objectArray[row, col].objectName != name1) // Skip any objects that we dont want to check for
+                    continue;
+
+                foreach (Vector2Int point in surroundingPoints)
+                {
+                    if (objectArray[row + point.x, col + point.y].objectName == name2 && !String.IsNullOrEmpty(name2))
+                        return true;
+
+                    if (objectArray[row + point.x, col + point.y].color == color2 &&
+                        !color2.Equals(KickstartDataStructures.Color.undefined))
+                        return true;
+
+                }
+            }
+        }
+
+        return false;
+    }
 
 }
