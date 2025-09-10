@@ -5,6 +5,8 @@ public class GameGrid : MonoBehaviour
 {
     public int width;
     public int height;
+
+    public ObjectTile dummyTilePrefab;
     
     public GroundTile[,] groundArray;
     public ObjectTile[,] objectArray;
@@ -14,6 +16,15 @@ public class GameGrid : MonoBehaviour
         groundArray = new GroundTile[height, width];
         
         objectArray = new ObjectTile[height, width];
+        
+        objectArray[0,0] = Instantiate(dummyTilePrefab);
+        objectArray[0,0].objectType = KickstartDataStructures.ObjectType.Plant;
+        objectArray[0, 0].objectName = "Lily";
+        objectArray[0, 0].color = KickstartDataStructures.Color.White;
+        
+        CountObjectsWithTag("Lily", KickstartDataStructures.ObjectType.Plant);
+        CountObjectsWithTag(KickstartDataStructures.Color.White, KickstartDataStructures.ObjectType.Plant);
+        CountAmountOfPlantColors();
     }
 
     public int CountObjectsWithTag(string objectName, KickstartDataStructures.ObjectType objectType)
@@ -21,10 +32,14 @@ public class GameGrid : MonoBehaviour
         int count = 0;
         foreach (ObjectTile obj in objectArray)
         {
-            if (obj.name == objectName && obj.objectType == objectType)
+            if (obj == null)
+                continue;
+            
+            if (obj.objectName == objectName && obj.objectType == objectType)
                 count++;
         }
 
+        Debug.Log(count + " objects with name: " + objectName);
         return count;
     }
 
@@ -33,10 +48,14 @@ public class GameGrid : MonoBehaviour
         int count = 0;
         foreach (ObjectTile obj in objectArray)
         {
+            if (obj == null)
+                continue;
+            
             if (obj.color == color && obj.objectType == objectType)
                 count++;
         }
 
+        Debug.Log(count + " objects with color: " + color);
         return count;
     }
 
@@ -46,13 +65,17 @@ public class GameGrid : MonoBehaviour
 
         foreach (ObjectTile obj in objectArray)
         {
+            if (obj == null)
+                continue;
+            
             if (obj.objectType != KickstartDataStructures.ObjectType.Plant)
                 continue;
             
             if (!discoveredColors.Contains(obj.color))
                 discoveredColors.Add(obj.color);
         }
-        
+
+        Debug.Log(discoveredColors.Count + " unique colors.");
         return discoveredColors.Count;
     }
 
