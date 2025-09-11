@@ -14,7 +14,15 @@ public class GameManager : MonoBehaviour
         }
     } // Game Manager instance property
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+
+
     public GameGrid gameGrid;
     
     public LevelRequirements levelRequirements;
+    public RuntimeBuildScript runtimeBuildScript;
 }
