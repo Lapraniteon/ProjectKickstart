@@ -15,4 +15,6 @@ public class GameManager : MonoBehaviour
     } // Game Manager instance property
 
     public GameGrid gameGrid;
+    
+    public LevelRequirements levelRequirements;
 }
