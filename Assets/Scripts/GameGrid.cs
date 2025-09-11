@@ -17,7 +17,7 @@ public class GameGrid : MonoBehaviour
         groundArray = new GroundTile[height, width];
         
         objectArray = new ObjectTile[height, width];
-        
+
         objectArray[0,0] = Instantiate(dummyTilePrefab);
         objectArray[0,0].objectType = KickstartDataStructures.ObjectType.Plant;
         objectArray[0, 0].objectName = "Lily";
@@ -118,6 +118,11 @@ public class GameGrid : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void Add(ObjectTile obj, Vector2Int location)
+    {
+        objectArray[location.y, location.x] = obj;
     }
 
 }
