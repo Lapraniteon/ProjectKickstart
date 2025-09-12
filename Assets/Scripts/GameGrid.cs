@@ -18,8 +18,6 @@ public class GameGrid : MonoBehaviour
         
         objectArray = new ObjectTile[height, width];
 
-        populateGroundArray();
-
         objectArray[0,0] = Instantiate(dummyTilePrefab);
         objectArray[0,0].objectType = KickstartDataStructures.ObjectType.Plant;
         objectArray[0, 0].objectName = "Lily";
@@ -30,13 +28,22 @@ public class GameGrid : MonoBehaviour
         CountAmountOfPlantColors();
     }
 
+    void Start()
+    {
+        populateGroundArray();
+    }
+
     void populateGroundArray()
     {
         for (int row = 0; row < height; row++)
         {
             for (int col = 0; col < width; col++)
             {
-                groundArray[row, col].type = (KickstartDataStructures.GroundType)GameManager.Instance.levelLayoutData.level1GroundType[row, col];
+                groundArray[row, col] = new GroundTile
+                {
+                    type = (KickstartDataStructures.GroundType)GameManager.Instance.levelLayoutData.level1GroundType[row, col]
+                };
+                
                 if (col == width-1)
                 {
                     groundArray[row, col].isShaded = true;
