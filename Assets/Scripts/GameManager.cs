@@ -23,6 +23,6 @@ public class GameManager : MonoBehaviour
 
     public GameGrid gameGrid;
     
-    public LevelRequirements levelRequirements;
     public RuntimeBuildScript runtimeBuildScript;
+    [HideInInspector] public LevelRequirements levelRequirements;
 }

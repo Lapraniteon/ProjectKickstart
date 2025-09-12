@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2851505440618099267}
   - component: {fileID: 3348658842567560549}
   - component: {fileID: 196840735315662687}
-  - component: {fileID: 4469061094364094955}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameGrid: {fileID: 196840735315662687}
-  levelRequirements: {fileID: 4469061094364094955}
+  levelRequirements: {fileID: 0}
 --- !u!114 &196840735315662687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,31 +62,3 @@ MonoBehaviour:
   width: 14
   height: 15
   dummyTilePrefab: {fileID: 3170783154354438902, guid: 486dd2f3fca2606468567e03403945e1, type: 3}
---- !u!114 &4469061094364094955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082265941031917850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a429c73c37941449ebb70bd44048b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hardRequirements:
-  - description: Plant 25 yellow plants.
-    completed: 0
-  - description: Plant at least 5 waterlilies.
-    completed: 0
-  - description: Waterlilies may not be placed next to each other.
-    completed: 0
-  - description: Yellow plants may not be next duck statues.
-    completed: 0
-  softRequirements:
-  - description: Plant at least 4 different plant colors.
-    completed: 0
-  - description: Place 6 duck statues.
-    completed: 0
-  - description: Occupy every soil space.
-    completed: 0
