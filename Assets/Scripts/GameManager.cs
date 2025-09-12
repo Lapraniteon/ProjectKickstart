@@ -25,4 +25,5 @@ public class GameManager : MonoBehaviour
     
     public RuntimeBuildScript runtimeBuildScript;
     [HideInInspector] public LevelRequirements levelRequirements;
+    public LevelLayoutData levelLayoutData;
 }
