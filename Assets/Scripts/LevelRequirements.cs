@@ -1,3 +1,5 @@
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class LevelRequirements : MonoBehaviour
@@ -5,7 +7,27 @@ public class LevelRequirements : MonoBehaviour
 
     public LevelRequirement[] hardRequirements;
     public LevelRequirement[] softRequirements;
+    
+    public bool hardRequirementsComplete { get; private set; }
 
+    private void Awake()
+    {
+        GameManager.Instance.levelRequirements = this;
+    }
+    
+    private void Start()
+    {
+        SetTextObjects();
+    }
+
+    private void SetTextObjects()
+    {
+        foreach (LevelRequirement levelRequirement in hardRequirements.Concat(softRequirements))
+        {
+            levelRequirement.textObject.text = levelRequirement.completed ? $"<strikethrough>{levelRequirement.description}" : levelRequirement.description;
+        }
+    }
+    
     public void Check()
     {
         GameGrid gameGrid = GameManager.Instance.gameGrid;
@@ -31,6 +53,16 @@ public class LevelRequirements : MonoBehaviour
             gameGrid.AreThereAdjacentObjects("DuckStatue", null, KickstartDataStructures.Color.Yellow);
         Debug.Log($"{hardRequirements[3].completed}: {hardRequirements[3].description}");
 
+        hardRequirementsComplete = true;
+        foreach (LevelRequirement hardRequirement in hardRequirements)
+        {
+            if (!hardRequirement.completed)
+            {
+                hardRequirementsComplete = false;
+                break;
+            }
+        }
+
         // Check soft requirements
 
         // Plant at least 4 different plant colors.
@@ -45,6 +77,8 @@ public class LevelRequirements : MonoBehaviour
         // Occupy every soil space.
         softRequirements[2].completed = IsEverySoilSpaceOccupied(gameGrid);
         Debug.Log($"{softRequirements[2].completed}: {softRequirements[2].description}");
+        
+        SetTextObjects();
     }
 
     private static bool IsEverySoilSpaceOccupied(GameGrid gameGrid)
@@ -80,4 +114,6 @@ public class LevelRequirement
     public string description;
 
     public bool completed = false;
+
+    public TMP_Text textObject;
 }
