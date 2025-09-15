@@ -592,6 +592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5416547656151586660}
+  - component: {fileID: 4389707865716459503}
   m_Layer: 0
   m_Name: Coneflower Yellow
   m_TagString: Untagged
@@ -616,3 +617,26 @@ Transform:
   - {fileID: 8640388506718410959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4389707865716459503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345629936255363617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92221f238f0bfab43a403a4916c61d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeEdited: 1
+  objectType: 1
+  objectName: Coneflower
+  color: 2
+  groundType: 01000000
+  shadeRequirement: 0
+  needsWall: 0
+  needsAdjacentGround: 0
+  noAdjacentGround: 0
+  needsAdjacentObject: []
+  noAdjacentObject: []

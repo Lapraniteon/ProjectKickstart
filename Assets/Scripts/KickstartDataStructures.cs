@@ -34,7 +34,9 @@ public class KickstartDataStructures
         Red, 
         Green,
         Orange,
-        Pink
+        Pink,
+        Purple,
+        Blue
     }
 }
 

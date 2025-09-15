@@ -229,6 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6482613400171438705}
+  - component: {fileID: 9051022571028935268}
   m_Layer: 0
   m_Name: Hosta Blue
   m_TagString: Untagged
@@ -253,6 +254,29 @@ Transform:
   - {fileID: 1883050837877021606}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9051022571028935268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902760878240845487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92221f238f0bfab43a403a4916c61d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeEdited: 1
+  objectType: 1
+  objectName: Hosta
+  color: 8
+  groundType: 01000000
+  shadeRequirement: 1
+  needsWall: 0
+  needsAdjacentGround: 0
+  noAdjacentGround: 0
+  needsAdjacentObject: []
+  noAdjacentObject: []
 --- !u!1 &2347031109165583824
 GameObject:
   m_ObjectHideFlags: 0
