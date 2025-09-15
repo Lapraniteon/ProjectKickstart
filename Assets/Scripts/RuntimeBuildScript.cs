@@ -23,7 +23,7 @@ public class RuntimeBuildScript : MonoBehaviour
                 Destroy(newObject);
             } else
             {
-                GameManager.Instance.gameGrid.Add(newObject, coordinates);
+                GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
             }
         }
 
