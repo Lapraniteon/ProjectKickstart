@@ -4,10 +4,10 @@ public class KickstartDataStructures
 {
     public enum GroundType
     {
-        none,
-        Soil,
-        Water,
-        Solid
+        none = 0,
+        Soil = 1,
+        Water = 2,
+        Solid = 3
     }
 
     public enum ShadeRequirement
@@ -45,7 +45,7 @@ public class GroundTile
     public KickstartDataStructures.GroundType type = KickstartDataStructures.GroundType.Soil;
 
     // Can tiles be placed on this? (Overrides groundType requirements)
-    public bool placeable = true;
+    public bool placeable = true; // likely unnecessary. kept in in case we missed something.
 
     // Is there shade on this tile?
     public bool isShaded = false;

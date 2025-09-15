@@ -28,6 +28,30 @@ public class GameGrid : MonoBehaviour
         CountAmountOfPlantColors();
     }
 
+    void Start()
+    {
+        populateGroundArray();
+    }
+
+    void populateGroundArray()
+    {
+        for (int row = 0; row < height; row++)
+        {
+            for (int col = 0; col < width; col++)
+            {
+                groundArray[row, col] = new GroundTile
+                {
+                    type = (KickstartDataStructures.GroundType)GameManager.Instance.levelLayoutData.level1GroundType[row, col]
+                };
+                
+                if (col == width-1)
+                {
+                    groundArray[row, col].isShaded = true;
+                }
+            }
+        }
+    }
+
     public int CountObjectsWithTag(string objectName, KickstartDataStructures.ObjectType objectType)
     {
         int count = 0;

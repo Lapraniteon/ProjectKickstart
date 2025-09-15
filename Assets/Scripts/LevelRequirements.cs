@@ -12,11 +12,12 @@ public class LevelRequirements : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.levelRequirements = this;
+        
     }
     
     private void Start()
     {
+        GameManager.Instance.levelRequirements = this;
         SetTextObjects();
     }
 
