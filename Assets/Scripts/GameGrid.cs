@@ -11,17 +11,14 @@ public class GameGrid : MonoBehaviour
     
     public GroundTile[,] groundArray;
     public ObjectTile[,] objectArray;
+    
+    public BuildLevel buildLevel;
 
     void Awake()
     {
         groundArray = new GroundTile[height, width];
         
         objectArray = new ObjectTile[height, width];
-
-        objectArray[0,0] = Instantiate(dummyTilePrefab);
-        objectArray[0,0].objectType = KickstartDataStructures.ObjectType.Plant;
-        objectArray[0, 0].objectName = "Lily";
-        objectArray[0, 0].color = KickstartDataStructures.Color.White;
         
         CountObjectsWithTag("Lily", KickstartDataStructures.ObjectType.Plant);
         CountObjectsWithTag(KickstartDataStructures.Color.White, KickstartDataStructures.ObjectType.Plant);
@@ -31,6 +28,9 @@ public class GameGrid : MonoBehaviour
     void Start()
     {
         populateGroundArray();
+        
+        buildLevel.BuildLevelObjects();
+        Debug.Log("Finish building objects");
     }
 
     void populateGroundArray()
