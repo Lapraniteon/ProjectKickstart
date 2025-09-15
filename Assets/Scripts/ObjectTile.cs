@@ -18,4 +18,5 @@ public class ObjectTile : MonoBehaviour
     public KickstartDataStructures.GroundType noAdjacentGround = KickstartDataStructures.GroundType.none;
     public string[] needsAdjacentObject;
     public string[] noAdjacentObject;
+    public bool providesShade = false;
 }
