@@ -26,7 +26,9 @@ public class RuntimeBuildScript : MonoBehaviour
             } else
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
+                Debug.Log("Placed object");
             }
+            
         }
 
 
@@ -46,7 +48,8 @@ public class RuntimeBuildScript : MonoBehaviour
         int objCol = coordinates.y;
 
         // check if spot is empty
-        if (objArray[objRow, objCol] != null) return false;
+        Debug.Log(GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y]);
+        if (objArray[objRow, objCol]!= null) return false;
 
         //check for correct type of soil
         bool correctGround = false;

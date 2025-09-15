@@ -160,17 +160,17 @@ public class GameGrid : MonoBehaviour
     //if any adjacent cell to the given position is a shade giving plant, return true. Otherwise return false. 
     public bool ShadeProvidingPlantsNextToCell (int row, int col)
     {
-        foreach (Vector2Int point in surroundingPoints)
+        /*foreach (Vector2Int point in surroundingPoints)
         {
             if (objectArray[row + point.x, col + point.y].providesShade)
                 return true;
-        }
+        }*/
         return false;
     }
 
     public void AddToObjectArray(ObjectTile obj, Vector2Int location)
     {
-        objectArray[location.y, location.x] = obj;
+        objectArray[location.x, location.y] = obj;
     }
 
     //checks adjacent cells to a given position and returns a list of all (non-zero) ground type values.
