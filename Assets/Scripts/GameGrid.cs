@@ -144,7 +144,7 @@ public class GameGrid : MonoBehaviour
         return false;
     }
 
-    public void Add(ObjectTile obj, Vector2Int location)
+    public void AddToObjectArray(ObjectTile obj, Vector2Int location)
     {
         objectArray[location.y, location.x] = obj;
     }
