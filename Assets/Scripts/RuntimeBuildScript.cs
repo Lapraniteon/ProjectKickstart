@@ -77,10 +77,10 @@ public class RuntimeBuildScript : MonoBehaviour
         {
             if (plantable == groundArray[objRow, objCol].type)
             {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     bool ShadeReqMet(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
