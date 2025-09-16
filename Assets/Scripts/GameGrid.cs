@@ -163,11 +163,14 @@ public class GameGrid : MonoBehaviour
     //if any adjacent cell to the given position is a shade giving plant, return true. Otherwise return false. 
     public bool ShadeProvidingPlantsNextToCell (int row, int col)
     {
-        /*foreach (Vector2Int point in surroundingPoints)
+        foreach (Vector2Int point in surroundingPoints)
         {
+            if (objectArray[row + point.x, col + point.y] == null)
+                continue;
+            
             if (objectArray[row + point.x, col + point.y].providesShade)
                 return true;
-        }*/
+        }
         return false;
     }
 
@@ -183,9 +186,13 @@ public class GameGrid : MonoBehaviour
 
         foreach (Vector2Int point in surroundingPoints)
         {
-            if (groundArray[row, col].type != KickstartDataStructures.GroundType.none)
+            if (groundArray[row + point.x, col + point.y] == null)
+                continue;
+
+
+            if (groundArray[row + point.x, col + point.y].type != KickstartDataStructures.GroundType.none)
             {
-                adjacencyList.Add(groundArray[row, col].type);
+                adjacencyList.Add(groundArray[row + point.x, col + point.y].type);
             }
            
         }
@@ -193,16 +200,16 @@ public class GameGrid : MonoBehaviour
         return adjacencyList;
     }
 
-    public List<String> AdjacentObjectsToCell(int row, int col)
+    public List<string> AdjacentObjectsToCell(int row, int col)
     {
-        List<String> adjacencyList = new List<String>();
+        List<string> adjacencyList = new ();
 
         foreach (Vector2Int point in surroundingPoints)
         {
-            if (objectArray[row, col] != null)
-            {
-                adjacencyList.Add(objectArray[row, col].name);
-            }
+            if (objectArray[row + point.x, col + point.y] == null)
+                continue;
+
+            adjacencyList.Add(objectArray[row + point.x, col + point.y].objectName);
 
         }
 
