@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -27,6 +28,9 @@ public class RuntimeBuildScript : MonoBehaviour
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
                 Debug.Log("Placed object");
+
+                newObject.transform.localScale = Vector3.zero;
+                newObject.transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
             }
             
         }
