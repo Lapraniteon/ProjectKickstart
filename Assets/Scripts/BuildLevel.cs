@@ -11,7 +11,7 @@ public class BuildLevel : MonoBehaviour
     {
         foreach (ObjectToSpawn obj in objectsToSpawn)
         {
-            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(obj.coords.x+0.5f, 0f, -obj.coords.y+0.5f), Quaternion.identity);
+            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(obj.coords.x+0.5f, 0f, -obj.coords.y-0.5f), Quaternion.identity);
 
             if (obj.height == 1 && obj.width == 1)
             {

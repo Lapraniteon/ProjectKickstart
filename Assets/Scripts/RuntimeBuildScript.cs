@@ -19,7 +19,7 @@ public class RuntimeBuildScript : MonoBehaviour
             Debug.Log("No plant selected.");
         } else
         {
-            ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x+0.5f), Quaternion.identity);
+            ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
             if (!RequirementCheck(newObject, coordinates))
             {
                 Destroy(newObject.gameObject);
