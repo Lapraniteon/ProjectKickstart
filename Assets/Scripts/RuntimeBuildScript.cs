@@ -22,7 +22,7 @@ public class RuntimeBuildScript : MonoBehaviour
             ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x+0.5f), Quaternion.identity);
             if (!RequirementCheck(newObject, coordinates))
             {
-                Destroy(newObject);
+                Destroy(newObject.gameObject);
             } else
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
@@ -49,7 +49,10 @@ public class RuntimeBuildScript : MonoBehaviour
 
         // check if spot is empty
         Debug.Log(GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y]);
-        if (objArray[objRow, objCol]!= null) return false;
+        if (GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] != null)
+        {
+            return false;
+        }
 
         //check for correct type of soil
         bool correctGround = false;
