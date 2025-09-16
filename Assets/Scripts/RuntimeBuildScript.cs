@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -67,7 +69,11 @@ public class RuntimeBuildScript : MonoBehaviour
 
     bool EmptyCheck(ObjectTile obj, ObjectTile[,] objArray, int objRow, int objCol)
     {
-        if (objArray[objRow, objCol] != null) return false;
+        if (objArray[objRow, objCol] != null)
+        {
+            Debug.Log("Location occupied");
+            return false;
+        }
         else return true;
     }
 
@@ -80,6 +86,7 @@ public class RuntimeBuildScript : MonoBehaviour
                 return true;
             }
         }
+        Debug.Log("Wrong ground type");
         return false;
     }
 
@@ -93,6 +100,7 @@ public class RuntimeBuildScript : MonoBehaviour
         if ((obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NeedsShade && targetIsShaded == false) ||
             (obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NoShade && targetIsShaded == true))
         {
+            Debug.Log("Shade requirement unmet");
             return false;
         }
         return true;
@@ -104,11 +112,13 @@ public class RuntimeBuildScript : MonoBehaviour
         {
             if (obj.noAdjacentGround != KickstartDataStructures.GroundType.none && obj.noAdjacentGround == groundType)
             {
+                Debug.Log("Forbidden ground type nearby");
                 return false;
             }
 
             if (obj.needsAdjacentGround != KickstartDataStructures.GroundType.none && obj.needsAdjacentGround != groundType)
             {
+                Debug.Log("Needed adjacent ground type missing");
                 return false;
             }
         }
@@ -117,23 +127,49 @@ public class RuntimeBuildScript : MonoBehaviour
 
     bool ObjAdjMet(ObjectTile obj, int objRow, int objCol)
     {
+        // variables for needed object check
+        List<string> discoveredNearby = new ();
+
         foreach (string listName in GameManager.Instance.gameGrid.AdjacentObjectsToCell(objRow, objCol))
         {
+ 
             if (obj.noAdjacentObject != null)
             {
                 foreach (string forbidden in obj.noAdjacentObject)
                 {
-                    if (forbidden == listName) return false;
+                    if (forbidden == listName)
+                    {
+                        Debug.Log("Forbidden adjacent object");
+                        return false;
+                    }
                 }
             }
             if (obj.needsAdjacentObject != null)
             {
+                // if one or more needed objects exist: check if current object is needed -> check if is already discovered, if not, add and increase counter. 
                 foreach (string required in obj.needsAdjacentObject)
                 {
-                    if (required != listName) return false;
+                    if (required == listName)
+                    {
+                        if (!discoveredNearby.Contains(required))
+                        {
+                            discoveredNearby.Add(required);
+                        }
+                    }
                 }
             }
         }
-        return true;
+
+        //for needed adjacents - check if number of discovered required adjacents is equal to number of required adjacents. 
+        if (obj.needsAdjacentObject != null)
+        {
+            if (obj.needsAdjacentObject.Length != discoveredNearby.Count)
+            {
+                Debug.Log("Required adjacent missing");
+                return false;
+            }
+        }
+
+            return true;
     }
 }
