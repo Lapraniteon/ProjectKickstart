@@ -276,3 +276,5 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject:
   - DuckStatue
+  - BigDuck
+  providesShade: 0

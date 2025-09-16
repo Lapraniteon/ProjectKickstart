@@ -14,7 +14,7 @@ public class BuildLevel : MonoBehaviour
         {
             Vector2Int newCoords = new Vector2Int(obj.coords.y, obj.coords.x);
             
-            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(newCoords.y+0.5f, 0f, -newCoords.x-0.5f), Quaternion.identity);
+            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(newCoords.y + 0.5f, 0f, -newCoords.x - 0.5f), Quaternion.identity);
 
             if (obj.height == 1 && obj.width == 1)
             {
@@ -22,9 +22,9 @@ public class BuildLevel : MonoBehaviour
                 continue;
             }
 
-            for (int row = obj.coords.x; row < obj.coords.y + obj.height; row++)
+            for (int row = newCoords.x; row < newCoords.x + obj.height; row++)
             {
-                for (int col = obj.coords.y; col < obj.coords.x + obj.width; col++)
+                for (int col = newCoords.y; col < newCoords.y + obj.width; col++)
                 {
                     GameManager.Instance.gameGrid.AddToObjectArray(newObject, new Vector2Int(row, col));
                 }
