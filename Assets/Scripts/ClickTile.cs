@@ -17,11 +17,11 @@ public class ClickTile : MonoBehaviour
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("RaycastTarget")))
             {
                 Debug.Log(hit.point);
                 int clickedTileX = (int)Mathf.Floor(hit.point.x);
-                int clickedTileY = (int)Mathf.Ceil(Mathf.Abs(hit.point.z));
+                int clickedTileY = (int)Mathf.Floor(Mathf.Abs(hit.point.z));
                 Debug.Log($"tile is in position -{clickedTileY},{clickedTileX}");
 
                 // call the PlaceObject method in RuntimeBuildScript

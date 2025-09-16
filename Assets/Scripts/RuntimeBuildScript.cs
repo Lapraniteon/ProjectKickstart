@@ -19,14 +19,16 @@ public class RuntimeBuildScript : MonoBehaviour
             Debug.Log("No plant selected.");
         } else
         {
-            ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x+0.5f), Quaternion.identity);
+            ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
             if (!RequirementCheck(newObject, coordinates))
             {
-                Destroy(newObject);
+                Destroy(newObject.gameObject);
             } else
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
+                Debug.Log("Placed object");
             }
+            
         }
 
 
@@ -46,33 +48,58 @@ public class RuntimeBuildScript : MonoBehaviour
         int objCol = coordinates.y;
 
         // check if spot is empty
-        if (objArray[objRow, objCol] != null) return false;
+        if (!EmptyCheck(obj, objArray, objRow, objCol)) return false;
 
         //check for correct type of soil
-        bool correctGround = false;
+        if (!CorrectGround(obj, groundArray, objRow, objCol)) return false;
+
+        // check shade requirement -> 1 for ground, 1 for shade providing plants. ground OR plant is true -> shade. 
+        if (!ShadeReqMet(obj, groundArray, objRow, objCol)) return false;
+
+        // check soil adjacency requirements
+        if (!SoilAdjMet(obj, groundArray, objRow, objCol)) return false;
+
+        // check plant adjacency requirements
+        if (!ObjAdjMet(obj, objRow, objCol)) return false;
+
+        return true;
+    }
+
+    bool EmptyCheck(ObjectTile obj, ObjectTile[,] objArray, int objRow, int objCol)
+    {
+        if (objArray[objRow, objCol] != null) return false;
+        else return true;
+    }
+
+    bool CorrectGround(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
+    {
         foreach (KickstartDataStructures.GroundType plantable in obj.groundType)
         {
             if (plantable == groundArray[objRow, objCol].type)
             {
-                correctGround = true;
-                break;
+                return true;
             }
         }
-        if (!correctGround) return false;
+        return false;
+    }
 
-        // check shade requirement -> 1 for ground, 1 for shade providing plants. ground OR plant is true -> shade. 
+    bool ShadeReqMet(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
+    {
         bool targetIsShaded = false;
         //why exactly aren't we storing all shaded tiles in the grid? -> coding when to remove shade from array and when not to is hell. 
         if (groundArray[objRow, objCol].isShaded) targetIsShaded = true;
         if (GameManager.Instance.gameGrid.ShadeProvidingPlantsNextToCell(objRow, objCol)) targetIsShaded = true;
-        
+
         if ((obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NeedsShade && targetIsShaded == false) ||
             (obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NoShade && targetIsShaded == true))
         {
             return false;
         }
+        return true;
+    }
 
-        // check soil adjacency requirements
+    bool SoilAdjMet(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
+    {
         foreach (KickstartDataStructures.GroundType groundType in GameManager.Instance.gameGrid.AdjacentGroundToCell(objRow, objCol))
         {
             if (obj.noAdjacentGround != KickstartDataStructures.GroundType.none && obj.noAdjacentGround == groundType)
@@ -85,8 +112,11 @@ public class RuntimeBuildScript : MonoBehaviour
                 return false;
             }
         }
+        return true;
+    }
 
-        // check plant adjacency requirements
+    bool ObjAdjMet(ObjectTile obj, int objRow, int objCol)
+    {
         foreach (string listName in GameManager.Instance.gameGrid.AdjacentObjectsToCell(objRow, objCol))
         {
             if (obj.noAdjacentObject != null)
@@ -104,7 +134,6 @@ public class RuntimeBuildScript : MonoBehaviour
                 }
             }
         }
-
         return true;
     }
 }
