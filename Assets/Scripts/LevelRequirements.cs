@@ -25,7 +25,7 @@ public class LevelRequirements : MonoBehaviour
     {
         foreach (LevelRequirement levelRequirement in hardRequirements.Concat(softRequirements))
         {
-            levelRequirement.textObject.text = levelRequirement.completed ? $"<strikethrough>{levelRequirement.description}" : levelRequirement.description;
+            levelRequirement.textObject.text = levelRequirement.completed ? $"<s>{levelRequirement.description}</s>" : levelRequirement.description;
         }
     }
     
