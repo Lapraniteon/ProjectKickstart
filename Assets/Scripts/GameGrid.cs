@@ -53,7 +53,7 @@ public class GameGrid : MonoBehaviour
                     type = (KickstartDataStructures.GroundType)GameManager.Instance.levelLayoutData.level1GroundType[row, col]
                 };
                 
-                if (col == width-1)
+                if (col == width - 2)
                 {
                     groundArray[row, col].isShaded = true;
                 }
