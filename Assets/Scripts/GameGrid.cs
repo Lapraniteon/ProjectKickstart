@@ -143,6 +143,9 @@ public class GameGrid : MonoBehaviour
 
                 foreach (Vector2Int point in surroundingPoints)
                 {
+                    if (objectArray[row + point.x, col + point.y] == null)
+                        continue;
+                    
                     if (objectArray[row + point.x, col + point.y].objectName == name2 && !String.IsNullOrEmpty(name2))
                         return true;
 
