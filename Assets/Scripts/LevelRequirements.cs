@@ -46,12 +46,12 @@ public class LevelRequirements : MonoBehaviour
         Debug.Log($"{hardRequirements[1].completed}: {hardRequirements[1].description}");
 
         // Waterlilies may not be placed next to each other.
-        hardRequirements[2].completed = gameGrid.AreThereAdjacentObjects("Lily", "Lily");
+        hardRequirements[2].completed = !gameGrid.AreThereAdjacentObjects("Lily", "Lily");
         Debug.Log($"{hardRequirements[2].completed}: {hardRequirements[2].description}");
 
         // Yellow plants may not be next duck statues.
         hardRequirements[3].completed =
-            gameGrid.AreThereAdjacentObjects("DuckStatue", null, KickstartDataStructures.Color.Yellow);
+            !gameGrid.AreThereAdjacentObjects("DuckStatue", null, KickstartDataStructures.Color.Yellow) && !gameGrid.AreThereAdjacentObjects("BigDuck", null, KickstartDataStructures.Color.Yellow);
         Debug.Log($"{hardRequirements[3].completed}: {hardRequirements[3].description}");
 
         hardRequirementsComplete = true;
