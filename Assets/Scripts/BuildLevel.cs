@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BuildLevel : MonoBehaviour
@@ -11,11 +12,13 @@ public class BuildLevel : MonoBehaviour
     {
         foreach (ObjectToSpawn obj in objectsToSpawn)
         {
-            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(obj.coords.x+0.5f, 0f, -obj.coords.y-0.5f), Quaternion.identity);
+            Vector2Int newCoords = new Vector2Int(obj.coords.y, obj.coords.x);
+            
+            ObjectTile newObject = Instantiate(obj.prefab, new Vector3(newCoords.y+0.5f, 0f, -newCoords.x-0.5f), Quaternion.identity);
 
             if (obj.height == 1 && obj.width == 1)
             {
-                GameManager.Instance.gameGrid.AddToObjectArray(newObject, obj.coords);
+                GameManager.Instance.gameGrid.AddToObjectArray(newObject, newCoords);
                 continue;
             }
 
