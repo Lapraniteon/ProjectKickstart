@@ -37,4 +37,17 @@ public class UIController : MonoBehaviour
             cantPlaceIndicator.gameObject.SetActive(false);
         };
     }
+
+    public void FinishLevel()
+    {
+        if (GameManager.Instance.levelRequirements.hardRequirementsComplete)
+        {
+            Debug.Log("Hard requirements complete, level can be finished");
+        }
+        else
+        {
+            Debug.Log("Level cannot be finished, hard requirements unmet");
+        }
+    }
+    
 }

@@ -10,10 +10,8 @@ public class LevelRequirements : MonoBehaviour
     
     public bool hardRequirementsComplete { get; private set; }
 
-    private void Awake()
-    {
-        
-    }
+    public TMP_Text hardRequirementsIndicator;
+    public TMP_Text softRequirementsIndicator;
     
     private void Start()
     {
@@ -25,7 +23,7 @@ public class LevelRequirements : MonoBehaviour
     {
         foreach (LevelRequirement levelRequirement in hardRequirements.Concat(softRequirements))
         {
-            levelRequirement.textObject.text = levelRequirement.completed ? $"<s>{levelRequirement.description}</s>" : levelRequirement.description;
+            levelRequirement.textObject.text = levelRequirement.completed ? $"- <s>{levelRequirement.description}</s>" : $"- {levelRequirement.description}";
         }
     }
     

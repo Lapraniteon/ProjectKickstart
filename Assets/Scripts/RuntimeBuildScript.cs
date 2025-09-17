@@ -22,6 +22,12 @@ public class RuntimeBuildScript : MonoBehaviour
             Debug.Log("No plant selected.");
         } else
         {
+            if (selectedPrefabIndex >= PrefabList.Length)
+            {
+                Debug.LogWarning($"No plant assigned in array for index {selectedPrefabIndex}");
+                return;
+            }
+            
             ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
             if (!RequirementCheck(newObject, coordinates))
             {
