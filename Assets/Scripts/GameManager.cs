@@ -19,11 +19,15 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-
-
     public GameGrid gameGrid;
     
     public RuntimeBuildScript runtimeBuildScript;
     [HideInInspector] public LevelRequirements levelRequirements;
     public LevelLayoutData levelLayoutData;
+    public UIController uiController;
+    
+    public bool InDeleteMode { get; private set; }
+    
+    public void ToggleDeleteMode() => InDeleteMode = !InDeleteMode;
+    public void SetDeleteMode(bool deleteMode) => InDeleteMode = deleteMode;
 }

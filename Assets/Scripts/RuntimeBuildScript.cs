@@ -40,8 +40,21 @@ public class RuntimeBuildScript : MonoBehaviour
 
     }
 
+    public void DeleteObject(Vector2Int coordinates)
+    {
+        if (GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] == null)
+            return;
+        
+        GameObject objectToDestroy = GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y].gameObject;
+        GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] = null;
+        
+        objectToDestroy.transform.DOScale(0, 0.2f).SetEase(Ease.InBack).onComplete = () => Destroy(objectToDestroy);
+    }
+
     public void SelectPlant(int index)
     {
+        GameManager.Instance.SetDeleteMode(false);
+        GameManager.Instance.uiController.SetDeleteModePanel(false);
         selectedPrefabIndex = index;
     }
 

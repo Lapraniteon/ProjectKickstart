@@ -22,11 +22,20 @@ public class ClickTile : MonoBehaviour
                 Debug.Log(hit.point);
                 int clickedTileX = (int)Mathf.Floor(hit.point.x);
                 int clickedTileY = (int)Mathf.Floor(Mathf.Abs(hit.point.z));
-                Debug.Log($"tile is in position -{clickedTileY},{clickedTileX}");
+                Vector2Int clickedTileCoordSpace = new Vector2Int(clickedTileY, clickedTileX);
+                Debug.Log($"tile is in position -{clickedTileCoordSpace.x},{clickedTileCoordSpace.y}");
 
                 // call the PlaceObject method in RuntimeBuildScript
 
-                GameManager.Instance.runtimeBuildScript.PlaceObject(new Vector2Int(clickedTileY, clickedTileX));
+                if (GameManager.Instance.InDeleteMode)
+                {
+                    GameManager.Instance.runtimeBuildScript.DeleteObject(clickedTileCoordSpace);
+                }
+                else
+                {
+                    GameManager.Instance.runtimeBuildScript.PlaceObject(clickedTileCoordSpace);
+                }
+                
             }
         }
     }
