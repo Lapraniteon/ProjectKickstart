@@ -51,6 +51,9 @@ public class RuntimeBuildScript : MonoBehaviour
     {
         if (GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] == null)
             return;
+
+        if (GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y].canBeEdited == false)
+            return;
         
         GameObject objectToDestroy = GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y].gameObject;
         GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] = null;

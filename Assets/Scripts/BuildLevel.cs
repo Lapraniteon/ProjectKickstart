@@ -14,6 +14,7 @@ public class BuildLevel : MonoBehaviour
             Vector2Int newCoords = new Vector2Int(obj.coords.y, obj.coords.x);
             
             ObjectTile newObject = Instantiate(obj.prefab, new Vector3(newCoords.y + 0.5f, 0f, -newCoords.x - 0.5f), Quaternion.identity);
+            newObject.canBeEdited = obj.editableAfterSpawn;
 
             if (obj.height == 1 && obj.width == 1)
             {
@@ -37,6 +38,7 @@ public class BuildLevel : MonoBehaviour
 public class ObjectToSpawn
 {
     public ObjectTile prefab;
+    public bool editableAfterSpawn = false;
     public Vector2Int coords;
     public int height = 1;
     public int width = 1;
