@@ -26,6 +26,7 @@ public class RuntimeBuildScript : MonoBehaviour
             if (!RequirementCheck(newObject, coordinates))
             {
                 Destroy(newObject.gameObject);
+                GameManager.Instance.uiController.FlashCantPlaceIndicator();
             } else
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
