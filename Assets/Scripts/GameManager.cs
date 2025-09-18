@@ -30,4 +30,10 @@ public class GameManager : MonoBehaviour
     
     public void ToggleDeleteMode() => InDeleteMode = !InDeleteMode;
     public void SetDeleteMode(bool deleteMode) => InDeleteMode = deleteMode;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
 }
