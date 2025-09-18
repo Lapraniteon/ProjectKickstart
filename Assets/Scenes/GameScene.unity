@@ -1468,7 +1468,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.441
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1498,7 +1498,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2242,6 +2242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestUI
       objectReference: {fileID: 0}
+    - target: {fileID: 155953499516271765, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 220558530489364738, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2347,9 +2351,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1819731115}
     - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1819731119}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1819731115}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: SelectPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: RuntimeBuildScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024442903806479681, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1071611368458123716, guid: 86db182dc7a1f4e4d8cc761c9f1a856e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3052,6 +3084,54 @@ PrefabInstance:
     - target: {fileID: 2964464417649136263, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[1].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[2].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[3].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[4].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[5].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[6].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[7].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[8].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[9].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[10].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[11].editableAfterSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408680893090805613, guid: eea28659d6273ff47bd925513f58e0c1, type: 3}
+      propertyPath: objectsToSpawn.Array.data[12].editableAfterSpawn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
