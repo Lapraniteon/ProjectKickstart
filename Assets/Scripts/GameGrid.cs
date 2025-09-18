@@ -127,6 +127,18 @@ public class GameGrid : MonoBehaviour
         new Vector2Int(0, -1),
         new Vector2Int(1, -1),
     };
+
+    Vector2Int[] shadeCells =
+    {
+        new Vector2Int(1, 0),
+        new Vector2Int(1, 1),
+        new Vector2Int(0, 1),
+        new Vector2Int(-1, 1),
+        new Vector2Int(-1, 0),
+        //new Vector2Int(-1, -1),
+        //new Vector2Int(0, -1),
+        //new Vector2Int(1, -1),
+    };
     
     //checks the entire grid for any occurrences of two specific adjacent objects, or one object and another object of any colour
     public bool AreThereAdjacentObjects(string name1, string name2 = "", KickstartDataStructures.Color color2 = KickstartDataStructures.Color.undefined)
@@ -163,7 +175,7 @@ public class GameGrid : MonoBehaviour
     //if any adjacent cell to the given position is a shade giving plant, return true. Otherwise return false. 
     public bool ShadeProvidingPlantsNextToCell (int row, int col)
     {
-        foreach (Vector2Int point in surroundingPoints)
+        foreach (Vector2Int point in shadeCells)
         {
             if (objectArray[row + point.x, col + point.y] == null)
                 continue;
