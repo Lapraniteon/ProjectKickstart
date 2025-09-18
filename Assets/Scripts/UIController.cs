@@ -43,6 +43,13 @@ public class UIController : MonoBehaviour
         };
     }
 
+    public void HideCantPlaceIndicator()
+    {
+        cantPlaceIndicatorTween?.Kill();
+
+        cantPlaceIndicator.gameObject.SetActive(false);
+    }
+
     public void SetSelectedButton(Image button)
     {
         if (currentButtonSelected != null)

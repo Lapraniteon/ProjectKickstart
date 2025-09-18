@@ -43,6 +43,8 @@ public class RuntimeBuildScript : MonoBehaviour
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
                 Debug.Log("Placed object");
+                
+                GameManager.Instance.uiController.HideCantPlaceIndicator();
 
                 newObject.transform.localScale = Vector3.zero;
                 newObject.transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
