@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System;
+using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,6 +9,8 @@ public class RuntimeBuildScript : MonoBehaviour
 {
     public ObjectTile[] PrefabList;
     public int selectedPrefabIndex = 0; // should move this to the game controller probably
+    
+    string feedbackToReturn = "default";
 
     //the "coordinates" variable here is in array orientation, so world position has x and y reversed. 
     public void PlaceObject(Vector2Int coordinates)
@@ -29,10 +32,13 @@ public class RuntimeBuildScript : MonoBehaviour
             }
             
             ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
-            if (!RequirementCheck(newObject, coordinates))
+
+            (bool, string) requirementCheckFulfilled = RequirementCheck(newObject, coordinates);
+            
+            if (!requirementCheckFulfilled.Item1)
             {
                 Destroy(newObject.gameObject);
-                GameManager.Instance.uiController.FlashCantPlaceIndicator();
+                GameManager.Instance.uiController.FlashCantPlaceIndicator(requirementCheckFulfilled.Item2);
             } else
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
@@ -68,8 +74,9 @@ public class RuntimeBuildScript : MonoBehaviour
         selectedPrefabIndex = index;
     }
 
-    bool RequirementCheck(ObjectTile obj, Vector2Int coordinates)
+    (bool, string) RequirementCheck(ObjectTile obj, Vector2Int coordinates)
     {
+        
         ObjectTile[,] objArray = GameManager.Instance.gameGrid.objectArray;
         GroundTile[,] groundArray = GameManager.Instance.gameGrid.groundArray;
 
@@ -77,21 +84,21 @@ public class RuntimeBuildScript : MonoBehaviour
         int objCol = coordinates.y;
 
         // check if spot is empty
-        if (!EmptyCheck(obj, objArray, objRow, objCol)) return false;
+        if (!EmptyCheck(obj, objArray, objRow, objCol)) return (false, feedbackToReturn); // Spot is occupied
 
         //check for correct type of soil
-        if (!CorrectGround(obj, groundArray, objRow, objCol)) return false;
+        if (!CorrectGround(obj, groundArray, objRow, objCol)) return (false, feedbackToReturn); // Wrong type of ground
 
         // check shade requirement -> 1 for ground, 1 for shade providing plants. ground OR plant is true -> shade. 
-        if (!ShadeReqMet(obj, groundArray, objRow, objCol)) return false;
+        if (!ShadeReqMet(obj, groundArray, objRow, objCol)) return (false, feedbackToReturn); // 
 
         // check soil adjacency requirements
-        if (!SoilAdjMet(obj, groundArray, objRow, objCol)) return false;
+        if (!SoilAdjMet(obj, groundArray, objRow, objCol)) return (false, feedbackToReturn);
 
         // check plant adjacency requirements
-        if (!ObjAdjMet(obj, objRow, objCol)) return false;
+        if (!ObjAdjMet(obj, objRow, objCol)) return (false, feedbackToReturn);
 
-        return true;
+        return (true, "irrelevant");
     }
 
     bool EmptyCheck(ObjectTile obj, ObjectTile[,] objArray, int objRow, int objCol)
@@ -99,9 +106,11 @@ public class RuntimeBuildScript : MonoBehaviour
         if (objArray[objRow, objCol] != null)
         {
             Debug.Log("Location occupied");
+            feedbackToReturn = "Tile is already occupied.";
             return false;
         }
-        else return true;
+        
+        return true;
     }
 
     bool CorrectGround(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
@@ -113,23 +122,32 @@ public class RuntimeBuildScript : MonoBehaviour
                 return true;
             }
         }
+        
         Debug.Log("Wrong ground type");
+        feedbackToReturn = "Wrong type of terrain.";
         return false;
     }
 
     bool ShadeReqMet(ObjectTile obj, GroundTile[,] groundArray, int objRow, int objCol)
     {
-        bool targetIsShaded = false;
+        bool targetIsShaded = groundArray[objRow, objCol].isShaded;
         //why exactly aren't we storing all shaded tiles in the grid? -> coding when to remove shade from array and when not to is hell. 
-        if (groundArray[objRow, objCol].isShaded) targetIsShaded = true;
         if (GameManager.Instance.gameGrid.ShadeProvidingPlantsNextToCell(objRow, objCol)) targetIsShaded = true;
 
-        if ((obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NeedsShade && targetIsShaded == false) ||
-            (obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NoShade && targetIsShaded == true))
+        if (obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NeedsShade && !targetIsShaded)
         {
             Debug.Log("Shade requirement unmet");
+            feedbackToReturn = "This plant needs to be in shade.";
             return false;
         }
+        
+        if (obj.shadeRequirement == KickstartDataStructures.ShadeRequirement.NoShade && targetIsShaded)
+        {
+            Debug.Log("Shade requirement unmet");
+            feedbackToReturn = "This plant needs sunlight.";
+            return false;
+        }
+        
         return true;
     }
 
@@ -140,12 +158,14 @@ public class RuntimeBuildScript : MonoBehaviour
             if (obj.noAdjacentGround != KickstartDataStructures.GroundType.none && obj.noAdjacentGround == groundType)
             {
                 Debug.Log("Forbidden ground type nearby");
+                feedbackToReturn = "This cannot be next to that terrain.";
                 return false;
             }
 
             if (obj.needsAdjacentGround != KickstartDataStructures.GroundType.none && obj.needsAdjacentGround != groundType)
             {
                 Debug.Log("Needed adjacent ground type missing");
+                feedbackToReturn = "This needs to be next to different terrain.";
                 return false;
             }
         }
@@ -167,6 +187,7 @@ public class RuntimeBuildScript : MonoBehaviour
                     if (forbidden == listName)
                     {
                         Debug.Log("Forbidden adjacent object");
+                        feedbackToReturn = "This cannot be next to that plant or object.";
                         return false;
                     }
                 }
@@ -193,10 +214,11 @@ public class RuntimeBuildScript : MonoBehaviour
             if (obj.needsAdjacentObject.Length != discoveredNearby.Count)
             {
                 Debug.Log("Required adjacent missing");
+                feedbackToReturn = "This needs to be next to a different object.";
                 return false;
             }
         }
 
-            return true;
+        return true;
     }
 }

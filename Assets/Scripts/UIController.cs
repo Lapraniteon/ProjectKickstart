@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
 
     public Image cantPlaceIndicator;
     private TMP_Text cantPlaceIndicatorText;
+    private string cantPlaceIndicatorTextStartingData;
     public Sequence cantPlaceIndicatorTween;
 
     public Image currentButtonSelected;
@@ -19,18 +20,20 @@ public class UIController : MonoBehaviour
     void Start()
     {
         cantPlaceIndicatorText = cantPlaceIndicator.GetComponentInChildren<TMP_Text>();
+        cantPlaceIndicatorTextStartingData = cantPlaceIndicatorText.text;
     }
     
-    public void FlashCantPlaceIndicator()
+    public void FlashCantPlaceIndicator(string feedback)
     {
         cantPlaceIndicatorTween?.Kill();
         
+        cantPlaceIndicatorText.text = $"{cantPlaceIndicatorTextStartingData}<br><size=50%>{feedback}</size>";
         cantPlaceIndicator.gameObject.SetActive(true);
 
         cantPlaceIndicatorTween = DOTween.Sequence()
             .Append(cantPlaceIndicator.DOFade(1f, 0.1f))
             .Join(cantPlaceIndicatorText.DOFade(1f, 0.1f))
-            .AppendInterval(0.4f)
+            .AppendInterval(1f)
             .Append(cantPlaceIndicator.DOFade(0f, 0.5f))
             .Join(cantPlaceIndicatorText.DOFade(0f, 0.5f));
         
