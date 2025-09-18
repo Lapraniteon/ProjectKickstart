@@ -10,6 +10,8 @@ public class UIController : MonoBehaviour
     public Image cantPlaceIndicator;
     private TMP_Text cantPlaceIndicatorText;
     public Sequence cantPlaceIndicatorTween;
+
+    public Image currentButtonSelected;
     
     public void ToggleDeleteModePanel() => deleteModePanel.SetActive(!deleteModePanel.activeSelf);
     public void SetDeleteModePanel(bool active) => deleteModePanel.SetActive(active);
@@ -36,6 +38,17 @@ public class UIController : MonoBehaviour
         {
             cantPlaceIndicator.gameObject.SetActive(false);
         };
+    }
+
+    public void SetSelectedButton(Image button)
+    {
+        if (currentButtonSelected != null)
+            currentButtonSelected.color = new Color(1f, 1f, 1f, 1f);
+        
+        currentButtonSelected = button;
+        
+        if (currentButtonSelected != null && GameManager.Instance.runtimeBuildScript.selectedPrefabIndex != 0)
+            currentButtonSelected.color = new Color(1f, 1f, 0.8f, 1f);
     }
 
     public void FinishLevel()
