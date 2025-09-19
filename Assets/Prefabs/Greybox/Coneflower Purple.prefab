@@ -168,6 +168,8 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 0
+  formattedPlantHeader: test
+  formattedPlantInfo: testtestsetsetsetsetset
 --- !u!1 &4265739971521391363
 GameObject:
   m_ObjectHideFlags: 0

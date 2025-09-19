@@ -9,6 +9,17 @@ public class RuntimeBuildScript : MonoBehaviour
     
     string feedbackToReturn = "default";
 
+    public ObjectTile GetPrefab(int index)
+    {
+        if (index >= PrefabList.Length)
+        {
+            Debug.LogWarning($"No plant assigned in array for index {selectedPrefabIndex}");
+            return null;
+        }
+        
+        return PrefabList[index];
+    }
+    
     //the "coordinates" variable here is in array orientation, so world position has x and y reversed. 
     public void PlaceObject(Vector2Int coordinates)
     {
@@ -28,7 +39,7 @@ public class RuntimeBuildScript : MonoBehaviour
                 return;
             }
             
-            ObjectTile newObject = Instantiate(PrefabList[selectedPrefabIndex], new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
+            ObjectTile newObject = Instantiate(GetPrefab(selectedPrefabIndex), new Vector3(coordinates.y+0.5f, 0f, -coordinates.x-0.5f), Quaternion.identity);
 
             (bool, string) requirementCheckFulfilled = RequirementCheck(newObject, coordinates);
             
@@ -70,6 +81,15 @@ public class RuntimeBuildScript : MonoBehaviour
     {
         GameManager.Instance.uiController.SetDeleteModePanel(false);
         selectedPrefabIndex = index;
+
+        if (index == 0)
+        {
+            GameManager.Instance.uiController.ClearPlantInfo();
+        }
+        else
+        {
+            GameManager.Instance.uiController.SetPlantInfo(selectedPrefabIndex);
+        }
     }
 
     (bool, string) RequirementCheck(ObjectTile obj, Vector2Int coordinates)
