@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
         cantPlaceIndicator.gameObject.SetActive(true);
 
         cantPlaceIndicatorTween = DOTween.Sequence()
-            .Append(cantPlaceIndicator.DOFade(1f, 0.1f))
+            .Append(cantPlaceIndicator.DOFade(0.6f, 0.1f))
             .Join(cantPlaceIndicatorText.DOFade(1f, 0.1f))
             .AppendInterval(1f)
             .Append(cantPlaceIndicator.DOFade(0f, 0.5f))
