@@ -7471,11 +7471,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Orign:</b> All over the world\n\n<b>Requirements:</b>\n- None\n\nGrass
-    plants suitable for lawn coverage are called turfgrasses. A lot of lawns have
-    multiple types of turfgrasses, though every type has different requirements\n\nOrnamental
-    grasses are bigger grass types that are pretty in your garden but can\u2019t
-    be used for a lawn.\n"
+  m_text: 'Perfect for all gardens across the globe
+
+
+    Comes in all shapes and
+    sizes
+
+
+    Has large variations in colours
+
+
+
+    Makes your dream garden easier
+    to navigate '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
   m_sharedMaterial: {fileID: -1550277563210388531, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
@@ -9919,7 +9927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Grasses \u2013 Poaceae "
+  m_text: Cobblestone Path
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80d5b4e0a21b92f408b2e28e26ca03e3, type: 2}
   m_sharedMaterial: {fileID: 1877877758500063634, guid: 80d5b4e0a21b92f408b2e28e26ca03e3, type: 2}
@@ -11928,11 +11936,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Orign:</b> All over the world\n\n<b>Requirements:</b>\n- None\n\nGrass
-    plants suitable for lawn coverage are called turfgrasses. A lot of lawns have
-    multiple types of turfgrasses, though every type has different requirements\n\nOrnamental
-    grasses are bigger grass types that are pretty in your garden but can\u2019t
-    be used for a lawn.\n"
+  m_text: 'Perfect for all gardens across the globe
+
+
+    Comes in all shapes and
+    sizes
+
+
+    Has large variations in colours
+
+
+
+    Makes your dream garden easier
+    to navigate '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
   m_sharedMaterial: {fileID: -1550277563210388531, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
