@@ -19,4 +19,7 @@ public class ObjectTile : MonoBehaviour
     public string[] needsAdjacentObject;
     public string[] noAdjacentObject;
     public bool providesShade = false;
+
+    public string formattedPlantHeader;
+    [TextArea] public string formattedPlantInfo;
 }

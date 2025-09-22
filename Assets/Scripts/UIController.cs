@@ -13,6 +13,9 @@ public class UIController : MonoBehaviour
     public Sequence cantPlaceIndicatorTween;
 
     public Image currentButtonSelected;
+
+    public TMP_Text plantInformationHeader;
+    public TMP_Text plantInformationText;
     
     public void ToggleDeleteModePanel() => deleteModePanel.SetActive(!deleteModePanel.activeSelf);
     public void SetDeleteModePanel(bool active) => deleteModePanel.SetActive(active);
@@ -71,6 +74,23 @@ public class UIController : MonoBehaviour
         {
             Debug.Log("Level cannot be finished, hard requirements unmet");
         }
+    }
+
+    public void ClearPlantInfo()
+    {
+        plantInformationHeader.text = "";
+        plantInformationText.text = "";
+    }
+
+    public void SetPlantInfo(int index)
+    {
+        ObjectTile obj = GameManager.Instance.runtimeBuildScript.GetPrefab(index);
+
+        if (obj == null)
+            return;
+        
+        plantInformationHeader.text = obj.formattedPlantHeader;
+        plantInformationText.text = obj.formattedPlantInfo;
     }
     
 }

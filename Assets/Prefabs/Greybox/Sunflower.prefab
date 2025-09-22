@@ -645,6 +645,35 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 1
+  formattedPlantHeader: Sunflower - Helianthus Annus
+  formattedPlantInfo: '<b>Origin:</b> North America
+
+
+    <b>Requirements:</b>
+
+    -
+    Full sun
+
+    - Slightly wet ground
+
+
+    <b>Height:</b> 0,5 - 3,5 m
+
+
+    <b>Width:</b>
+    12 - 30 cm
+
+    <b>Colour:</b> Yellow
+
+
+    <b>Season:</b> Summer
+
+
+    <b>Fun
+    Fact!</b>
+
+    Sunflowers are one of the few flowers that turn themselves towards
+    the sun.'
 --- !u!1 &9097663961018768956
 GameObject:
   m_ObjectHideFlags: 0
