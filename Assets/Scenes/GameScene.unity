@@ -7471,14 +7471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel pharetra
-    metus. Vivamus vitae velit dapibus, pretium ipsum sed, ornare odio. Etiam vitae
-    eros varius, tincidunt ipsum varius, maximus tellus. Duis maximus libero sed
-    efficitur pretium. Etiam et leo lobortis, consequat mi vitae, cursus neque. Proin
-    quis purus luctus, dapibus libero sit amet, lobortis ipsum. Sed non facilisis
-    metus. Praesent iaculis pharetra iaculis. Nam varius sagittis enim in luctus.
-    Cras vehicula, elit a accumsan faucibus, purus tellus ultricies tortor, in consectetur
-    tortor augue sit amet ligula. '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
   m_sharedMaterial: {fileID: -1550277563210388531, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
@@ -7505,8 +7498,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7543,7 +7536,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 40, y: 30, z: 20, w: 20}
+  m_margin: {x: 40, y: 25, z: 20, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9619,6 +9612,8 @@ MonoBehaviour:
   deleteModePanel: {fileID: 7474126072362031809}
   cantPlaceIndicator: {fileID: 2088896348889018352}
   currentButtonSelected: {fileID: 0}
+  plantInformationHeader: {fileID: 4869434467143723500}
+  plantInformationText: {fileID: 1713987388746988876}
 --- !u!114 &4499053379573379087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9908,7 +9903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Plant Name
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80d5b4e0a21b92f408b2e28e26ca03e3, type: 2}
   m_sharedMaterial: {fileID: 1877877758500063634, guid: 80d5b4e0a21b92f408b2e28e26ca03e3, type: 2}
@@ -9938,7 +9933,7 @@ MonoBehaviour:
   m_fontSize: 48.77
   m_fontSizeBase: 48.77
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -11917,14 +11912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel pharetra
-    metus. Vivamus vitae velit dapibus, pretium ipsum sed, ornare odio. Etiam vitae
-    eros varius, tincidunt ipsum varius, maximus tellus. Duis maximus libero sed
-    efficitur pretium. Etiam et leo lobortis, consequat mi vitae, cursus neque. Proin
-    quis purus luctus, dapibus libero sit amet, lobortis ipsum. Sed non facilisis
-    metus. Praesent iaculis pharetra iaculis. Nam varius sagittis enim in luctus.
-    Cras vehicula, elit a accumsan faucibus, purus tellus ultricies tortor, in consectetur
-    tortor augue sit amet ligula. '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
   m_sharedMaterial: {fileID: -1550277563210388531, guid: 78b96e12dfed45d468cabd92161ca074, type: 2}
@@ -11951,8 +11939,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11969,7 +11957,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 6
+  m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 1713987388746988876}
   m_enableKerning: 0
@@ -11989,7 +11977,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 20, y: 30, z: 40, w: 20}
+  m_margin: {x: 40, y: 25, z: 20, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
