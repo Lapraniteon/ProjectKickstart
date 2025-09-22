@@ -27,9 +27,18 @@ public class GameManager : MonoBehaviour
     public UIController uiController;
     
     public bool InDeleteMode { get; private set; }
-    
-    public void ToggleDeleteMode() => InDeleteMode = !InDeleteMode;
-    public void SetDeleteMode(bool deleteMode) => InDeleteMode = deleteMode;
+
+    public void ToggleDeleteMode()
+    {
+        InDeleteMode = !InDeleteMode;
+        uiController.deleteModePanelAnimator.SetBool("PanelVisible", InDeleteMode);
+    }
+
+    public void SetDeleteMode(bool deleteMode)
+    {
+        InDeleteMode = deleteMode;
+        uiController.deleteModePanelAnimator.SetBool("PanelVisible", InDeleteMode);
+    } 
 
     private void Update()
     {

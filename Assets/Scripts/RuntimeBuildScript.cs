@@ -87,7 +87,7 @@ public class RuntimeBuildScript : MonoBehaviour
 
     public void SelectPlant(int index)
     {
-        GameManager.Instance.uiController.SetDeleteModePanel(false);
+        // GameManager.Instance.uiController.SetDeleteModePanel(false);
         selectedPrefabIndex = index;
 
         if (index == 0)

@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     public TMP_Text plantInformationHeader;
     public TMP_Text plantInformationText;
 
+    public Animator deleteModePanelAnimator;
+
     [Header("Events")]
     public UnityEvent OnCantPlace;
     public UnityEvent OnSelectButton;
