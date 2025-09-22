@@ -59,11 +59,23 @@ MonoBehaviour:
   noAdjacentObject: []
   providesShade: 0
   formattedPlantHeader: "Grasses \u2013 Poaceae"
-  formattedPlantInfo: "<b>Origin:</b> All over the world\n\n<b>Requirements:</b>\n-
-    None\n\nGrass plants suitable for lawn coverage are called turfgrasses. A lot
-    of lawns have multiple types of turfgrasses, though every type has different
-    requirements\n\nOrnamental grasses are bigger grass types that are pretty in
-    your garden but can\u2019t be used for a lawn."
+  formattedPlantInfo: '<b>Origin:</b> Everywhere
+
+    
+
+    <b>Requirements:</b>
+    None
+
+    
+
+    Grass plants suitable for lawn coverage are called turfgrasses.
+    There are cool-season and warm-season turfgrasses, you choose one depending on
+    where you live.
+
+    
+
+    Ornamental grasses are bigger grass types that are
+    used like flowers.'
 --- !u!1 &2478000474402682169
 GameObject:
   m_ObjectHideFlags: 0
