@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RuntimeBuildScript : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class RuntimeBuildScript : MonoBehaviour
     public int selectedPrefabIndex = 0; // should move this to the game controller probably
     
     string feedbackToReturn = "default";
+
+    public UnityEvent OnObjectPlace;
+    public UnityEvent OnObjectDelete;
 
     public ObjectTile GetPrefab(int index)
     {
@@ -51,6 +55,8 @@ public class RuntimeBuildScript : MonoBehaviour
             {
                 GameManager.Instance.gameGrid.AddToObjectArray(newObject, coordinates);
                 Debug.Log("Placed object");
+
+                OnObjectPlace.Invoke();
                 
                 GameManager.Instance.uiController.HideCantPlaceIndicator();
 
@@ -73,6 +79,8 @@ public class RuntimeBuildScript : MonoBehaviour
         
         GameObject objectToDestroy = GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y].gameObject;
         GameManager.Instance.gameGrid.objectArray[coordinates.x, coordinates.y] = null;
+
+        OnObjectDelete.Invoke();
         
         objectToDestroy.transform.DOScale(0, 0.2f).SetEase(Ease.InBack).onComplete = () => Destroy(objectToDestroy);
     }

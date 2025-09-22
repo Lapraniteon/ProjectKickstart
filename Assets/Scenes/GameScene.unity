@@ -9614,6 +9614,18 @@ MonoBehaviour:
   currentButtonSelected: {fileID: 0}
   plantInformationHeader: {fileID: 4869434467143723500}
   plantInformationText: {fileID: 1713987388746988876}
+  OnCantPlace:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSelectButton:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishLevel:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCantFinishLevel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4499053379573379087
 MonoBehaviour:
   m_ObjectHideFlags: 0
