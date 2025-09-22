@@ -496,6 +496,11 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 0
+  formattedPlantHeader: 'Hosta - Hosta spp. '
+  formattedPlantInfo: "<b>Origin:</b> East/central China  \n\n<b>Requirements:</b>\n-
+    Shade \n\n<b>Height:</b> 10 \u2013 180 cm \n\n<b>Width:</b> Varies a lot\n\n<b>Colour:</b>
+    Yellow\n\n<b>Season:</b> Summer\n\n<b>Fun Fact!</b>\nDeer absolutely love Hosta's!
+    If they find some, only the stems will be left. "
 --- !u!1 &8280047612687333490
 GameObject:
   m_ObjectHideFlags: 0

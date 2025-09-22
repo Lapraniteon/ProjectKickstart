@@ -173,6 +173,20 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 0
+  formattedPlantHeader: Cobblestone Path
+  formattedPlantInfo: 'Perfect for all gardens across the globe
+
+
+    Comes in all
+    shapes and sizes
+
+
+    Has large variations in colours
+
+
+
+    Makes your dream
+    garden easier to navigate '
 --- !u!1 &3627465921686148294
 GameObject:
   m_ObjectHideFlags: 0

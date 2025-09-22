@@ -279,6 +279,10 @@ MonoBehaviour:
   - DuckStatue
   - BigDuck
   providesShade: 0
+  formattedPlantHeader: Duck Statue
+  formattedPlantInfo: "Spectacular rubber ducky statues perfect for every garden.
+    \n\nBrings your best yellow bathing friend to the outdoors.\n\n<b>Colour:</b>
+    Yellow"
 --- !u!1001 &2579289199509911655
 PrefabInstance:
   m_ObjectHideFlags: 0
