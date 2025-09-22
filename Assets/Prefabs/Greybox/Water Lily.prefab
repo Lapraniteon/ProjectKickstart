@@ -704,6 +704,11 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 0
+  formattedPlantHeader: Water lily - Nymphaea alba
+  formattedPlantInfo: "<b>Origin:</b> Africa, Asia and Europe \n\n<b>Requirements:</b>\n-
+    Full sun \n- In deep water\n\n<b>Height:</b> 10 cm\n<b>Width:</b> 90 -150 cm\n<b>Colour:</b>
+    White\n<b>Season:</b> Summer\n\n<b>Fun Fact!</b>\nThe leaves of the flower are
+    hydrophobic (water repellent) this keeps the flower clean. "
 --- !u!1 &9120249917861439004
 GameObject:
   m_ObjectHideFlags: 0

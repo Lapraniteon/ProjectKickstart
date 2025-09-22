@@ -200,6 +200,11 @@ MonoBehaviour:
   needsAdjacentObject: []
   noAdjacentObject: []
   providesShade: 0
+  formattedPlantHeader: Coneflower - Echinacea
+  formattedPlantInfo: "<b>Orign:</b> Eastern and central United States\n\n<b>Requirements:</b>\n-
+    None\n\n<b>Height:</b> 60-150 cm \n\n<b>Width:</b> 30 \u2013 60 cm\n\n<b>Colour:</b>
+    Yellow\n\n<b>Season:</b> Summer and Fall \n\n<b>Fun Fact!</b>\nIts Latin named
+    after the Greek word for hedgehog."
 --- !u!1001 &375122137357077064
 PrefabInstance:
   m_ObjectHideFlags: 0
