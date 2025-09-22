@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2292763713013923988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6372000218822177667}
+  m_Layer: 0
+  m_Name: BigDuckyOnPedestal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6372000218822177667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292763713013923988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2695302305214564933}
+  - {fileID: 8939776150119341368}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1202412390042157662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6372000218822177667}
+    m_Modifications:
+    - target: {fileID: 7490739713902560732, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_Name
+      value: BigPedestal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+--- !u!4 &8939776150119341368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7836162993583988582, guid: 5e37a3f63bf86624c83079143ad346ec, type: 3}
+  m_PrefabInstance: {fileID: 1202412390042157662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7966906596228125245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6372000218822177667}
+    m_Modifications:
+    - target: {fileID: 4664692171298800322, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_Name
+      value: DuckyStatue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+--- !u!4 &2695302305214564933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5473985142869448824, guid: 74e3bf6fe3a22f24ca952350d857d4a1, type: 3}
+  m_PrefabInstance: {fileID: 7966906596228125245}
+  m_PrefabAsset: {fileID: 0}
